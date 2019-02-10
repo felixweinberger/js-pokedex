@@ -1,5 +1,5 @@
-<div *ngIf="pokemons">
-  <div *ngFor="let pokemon of pokemons">
-    {{pokemon.name}}
-  </div>
+<div class="dashboard__container" *ngIf="pokemons">
+  <app-card 
+    *ngFor="let pokemon of pokemons"
+    [pokemon]="pokemon"></app-card>
 </div>

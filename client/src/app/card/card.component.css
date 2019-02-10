@@ -1,0 +1,19 @@
+:host {
+  display: block;
+  text-align: center;
+  min-width: 150px;
+  max-width: 200px;
+  margin: 10px;
+  padding: 10px;
+  -webkit-box-shadow: 0 5px 32px 5px rgba(170, 170, 170, 1);
+  -moz-box-shadow: 0 5px 32px 5px rgba(170, 170, 170, 1);
+  box-shadow: 0 5px 32px 5px rgba(170, 170, 170, 1);
+}
+
+.card__name {
+  font-weight: 700;
+}
+
+.card__types {
+  font-style: italic;
+}

@@ -1,4 +1,8 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,700');
+
+* {
+  box-sizing: border-box;
+}
 
 body {
   box-sizing: border-box;

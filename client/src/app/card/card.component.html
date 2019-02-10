@@ -1,0 +1,6 @@
+<img src="{{pokemon.sprite}}" alt="{{pokemon.name | titlecase}} sprite">
+<div class="card__top">
+  <span class="card__name">{{pokemon.name | titlecase}}</span> 
+  <span class="card__number"> #{{pokemon.id}}</span>
+</div>
+<div class="card__types">{{pokemon.types.join(', ') | titlecase}}</div>
