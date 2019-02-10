@@ -23,9 +23,9 @@ const model = {
   },
 };
 
-(async () => {
-  const mew = await model.getPokemon(151)[0];
-  console.log(mew);
-})();
+// (async () => {
+//   const mew = await model.getPokemon(151);
+//   console.log(mew[0]); // eslint-disable-line no-console
+// })();
 
 module.exports = model;
