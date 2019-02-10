@@ -1,0 +1,11 @@
+{
+  "attr-no-dup": true,
+  "attr-req-value": false,
+  "img-req-alt": false,
+  "id-class-style": false,
+  "img-req-src": false,
+  "indent-style": "spaces",
+  "indent-width": 2,
+  "tag-name-match": true,
+  "class-style": "none"
+}
