@@ -24,7 +24,7 @@
   color: #e8e7e3;
   margin: 1rem;
   width: 25vw;
-  padding: 5px;
+  padding: 5px 15px;
 }
 
 .navbar__search:focus {
