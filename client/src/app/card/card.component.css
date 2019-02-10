@@ -1,12 +1,10 @@
 :host {
   display: block;
   text-align: center;
+  color: #e8e7e3;
   width: 150px;
   margin: 10px;
   padding: 10px;
-  -webkit-box-shadow: 0 5px 32px 5px rgba(170, 170, 170, 1);
-  -moz-box-shadow: 0 5px 32px 5px rgba(170, 170, 170, 1);
-  box-shadow: 0 5px 32px 5px rgba(170, 170, 170, 1);
 }
 
 .card__name {

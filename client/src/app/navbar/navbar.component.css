@@ -1,27 +1,32 @@
 :host {
   display: flex;
   justify-content: space-between;
-  background-color: #007c91;
+  background-color: rgb(23, 24, 28);
   position: sticky;
+  color: #e8e7e3;
   top: 0;
   margin-bottom: 5px;
-  -webkit-box-shadow: 0 5px 32px 5px rgba(170, 170, 170, 1);
-  -moz-box-shadow: 0 5px 32px 5px rgba(170, 170, 170, 1);
-  box-shadow: 0 5px 32px 5px rgba(170, 170, 170, 1);
 }
 
 .navbar__title {
   font-weight: 700;
-  color: white;
+  color: #e8e7e3;
   font-size: 2rem;
   margin: 1rem;
 }
 
 .navbar__search {
+  background-color: #212121;
+  border: 0;
+  border-bottom: 2px white;
   font-weight: 400;
   font-size: 0.8rem;
+  color: #e8e7e3;
   margin: 1rem;
   width: 25vw;
-  min-width: 250px;
   padding: 5px;
+}
+
+.navbar__search:focus {
+  outline-width: 0;
 }
