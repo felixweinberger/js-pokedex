@@ -1,12 +1,2 @@
-<app-navbar fullsreen></app-navbar>
-
-<div class="dashboard">
-  <div class="pokemon">Pokemon</div>
-  <div class="pokemon">Pokemon</div>
-  <div class="pokemon">Pokemon</div>
-  <div class="pokemon">Pokemon</div>
-  <div class="pokemon">Pokemon</div>
-  <div class="pokemon">Pokemon</div>
-</div>
-
-<router-outlet></router-outlet>
+<app-navbar></app-navbar>
+<app-dashboard [pokemons]="pokemons"></app-dashboard>
