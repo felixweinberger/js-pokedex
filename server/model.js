@@ -19,7 +19,7 @@ const model = {
     return Pokemon.find({id: id}).select('-_id -__v');
   },
   getPokemons () {
-    return Pokemon.find({}).select('-_id -__v');
+    return Pokemon.find({}).select('-_id -__v').sort({id: 1});
   },
 };
 
