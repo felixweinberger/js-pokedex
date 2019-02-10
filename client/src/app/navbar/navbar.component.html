@@ -1,2 +1,6 @@
 <div class="navbar__title">Pokémon</div>
-<input class="navbar__search" type="text" placeholder="Search for Pokémon or types">
+<input 
+  (keyup)="onSearchChange($event)"
+  class="navbar__search" 
+  type="text" 
+  placeholder="Search for Pokémon or types">

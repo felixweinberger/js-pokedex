@@ -12,6 +12,7 @@ import { Pokemon } from './pokemon';
 export class AppComponent implements OnInit {
   title = 'client';
   pokemons: Pokemon[];
+  filteredPokemons: Pokemon[];
 
   constructor(private apiClient: ApiClientService) { }
 
@@ -20,6 +21,16 @@ export class AppComponent implements OnInit {
       .subscribe(res => {
         this.pokemons = Array.prototype.map
           .call(res, pokemon => Pokemon.createFromObject(pokemon));
+        this.filteredPokemons = this.pokemons;
+      });
+  }
+
+  filterPokemons(filter) {
+    this.filteredPokemons = this.pokemons
+      .filter(pokemon => {
+        return pokemon.name.indexOf(filter) !== -1
+          || pokemon.types.some(type => type.indexOf(filter) !== -1)
+          || pokemon.id === Number(filter);
       });
   }
 

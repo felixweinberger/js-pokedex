@@ -1,2 +1,2 @@
-<app-navbar></app-navbar>
-<app-dashboard [pokemons]="pokemons"></app-dashboard>
+<app-navbar (search)="filterPokemons($event)"></app-navbar>
+<app-dashboard [pokemons]="filteredPokemons"></app-dashboard>
