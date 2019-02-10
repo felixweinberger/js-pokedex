@@ -10,7 +10,7 @@ import { Pokemon } from './pokemon';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'client';
+  title = 'pokebrowser';
   pokemons: Pokemon[];
   filteredPokemons: Pokemon[];
 
