@@ -14,6 +14,6 @@ router.get('/pokemon', ctrl.getPokemons);
 
 app.use(bodyparser());
 app.use(router.routes());
-app.use(serve(path.join(__dirname, '../public')));
+app.use(serve(path.join(__dirname, '../client/dist/client')));
 
 app.listen(port, console.log('Listening on port 3000.')); // eslint-disable-line no-console
