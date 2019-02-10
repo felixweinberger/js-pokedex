@@ -1,0 +1,23 @@
+{
+  "name": "pokemon",
+  "version": "1.0.0",
+  "description": "a small repo for practising servers, databases and frontend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/felixweinberger/pokemon.git"
+  },
+  "keywords": [
+    "pokemon",
+    "practice"
+  ],
+  "author": "Felix Weinberger",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/felixweinberger/pokemon/issues"
+  },
+  "homepage": "https://github.com/felixweinberger/pokemon#readme"
+}
