@@ -5,6 +5,8 @@ const router = new Router();
 const model = require('./models');
 const serve = require('koa-static');
 
+const port = process.env.PORT || 3000;
+
 router.get('/pokemons', async ctx => {
   ctx.body = model.getPokemons();
 })
@@ -21,7 +23,7 @@ app
 
 (async function () {
   await model.init();
-  app.listen(3000, () => {
+  app.listen(port, () => {
     console.log('Server online at port 3000');
   });
 })()
