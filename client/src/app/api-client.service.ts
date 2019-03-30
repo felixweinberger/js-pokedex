@@ -1,21 +1,21 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Pokemon } from './pokemon';
+import { PokemonPreview } from './pokemon-preview';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiClientService {
+  constructor() { }
 
-  pokemonURL = '/pokemon';
-
-  constructor(private http: HttpClient) { }
-
-  getPokemons() {
-    return this.http.get(this.pokemonURL);
+  gottaCatchEmAll() {
+    return fetch('/pokemons')
+      .then(res => res.json())
+      .then(res => res.map(PokemonPreview.parse));
   }
 
-  getPokemon(id) {
-    return this.http.get(this.pokemonURL + '/' + String(id));
+  catchOne(pokemonId) {
+    return fetch('/pokemons/' + pokemonId)
+      .then(res => res.json());
   }
-
 }

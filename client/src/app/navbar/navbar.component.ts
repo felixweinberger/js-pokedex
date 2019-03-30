@@ -6,17 +6,16 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
   @Output()
-  search = new EventEmitter<string>();
+  inputChanged = new EventEmitter();
 
   constructor() { }
 
-  ngOnInit() {
+  onChange(evt) {
+    this.inputChanged.emit(evt.target.value);
   }
 
-  onSearchChange(event) {
-    this.search.emit(event.target.value);
+  ngOnInit() {
   }
 
 }

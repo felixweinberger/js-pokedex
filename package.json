@@ -1,44 +1,39 @@
 {
-  "name": "pokemon",
-  "version": "1.0.0",
-  "description": "a small repo for practising servers, databases and frontend",
+  "name": "pokemon-dashboard",
+  "version": "1.1.1",
+  "description": "Angular pokedex",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "install": "cd client && npm i .",
+    "precommit": "cd client && ng lint",
+    "commit": "npx git-cz"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/felixweinberger/pokemon.git"
   },
-  "keywords": [
-    "pokemon",
-    "practice"
-  ],
-  "devDependencies": {
-    "browser-sync": "^2.16.0",
-    "cz-changelog": "^1.0.1",
-    "eslint": "^3.5.0",
-    "eslint-plugin-json": "^1.2.0",
-    "ghooks": "^1.3.2",
-    "gulp": "^3.9.1",
-    "gulp-eslint": "^3.0.1",
-    "gulp-html-lint": "0.0.1",
-    "gulp-load-plugins": "^1.3.0",
-    "gulp-stylelint": "^3.2.0",
-    "stylelint-config-standard": "^13.0.0"
-  },
-  "author": "Felix Weinberger",
+  "author": "Alan Hu & Felix Weinberger",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/felixweinberger/pokemon/issues"
+  "private": true,
+  "devDependencies": {
+    "cz-changelog": "^1.0.1",
+    "del": "3.0.0",
+    "gulp": "3.9.1",
+    "gulp-load-plugins": "1.5.0",
+    "gulp-replace": "1.0.0",
+    "husky": "1.1.2"
   },
-  "homepage": "https://github.com/felixweinberger/pokemon#readme",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-changelog"
+    }
+  },
   "dependencies": {
     "koa": "^2.7.0",
-    "koa-bodyparser": "^4.2.1",
-    "koa-json": "^2.0.2",
     "koa-router": "^7.4.0",
     "koa-static": "^5.0.0",
-    "mongoose": "^5.4.11"
+    "mongoose": "^5.4.10",
+    "request": "^2.88.0"
   }
 }

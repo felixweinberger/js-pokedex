@@ -1,10 +1,14 @@
 {
-    "/pokemon": {
-        "target": "http://localhost:3000",
-        "secure": false
-    },
-    "/pokemon/*": {
-        "target": "http://localhost:3000",
-        "secure": false
-    }
+  "/pokemons": {
+    "target": "http://localhost:3000",
+    "secure": false
+  },
+  "/pokelogo.png": {
+    "target": "http://localhost:3000",
+    "secure": false
+  },
+  "/sound/*": {
+    "target": "http://localhost:3000",
+    "secure": false
+  }
 }

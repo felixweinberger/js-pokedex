@@ -1,5 +1,5 @@
-<div class="dashboard__container" *ngIf="pokemons">
-  <app-card 
-    *ngFor="let pokemon of pokemons"
-    [pokemon]="pokemon"></app-card>
-</div>
+<app-card 
+  *ngFor="let pokemon of pokemonList"
+  [pokemon]="pokemon"
+  (selectedPokemon)="onClick($event)">
+</app-card> 

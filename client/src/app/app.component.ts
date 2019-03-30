@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-
 import { ApiClientService } from './api-client.service';
-import { Pokemon } from './pokemon';
+import { PokemonPreview } from './pokemon-preview';
 
 @Component({
   selector: 'app-root',
@@ -10,28 +8,23 @@ import { Pokemon } from './pokemon';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'pokebrowser';
-  pokemons: Pokemon[];
-  filteredPokemons: Pokemon[];
+  filterString: string;
+  pokemon: PokemonPreview;
 
-  constructor(private apiClient: ApiClientService) { }
+  constructor(private apiClient: ApiClientService) {}
+
+  searchChange(event) {
+    this.filterString = event;
+  }
+
+  selectPokemon(event) {
+    this.pokemon = event;
+  }
+
+  unselectPokemon(event) {
+    this.pokemon = event;
+  }
 
   ngOnInit() {
-    this.apiClient.getPokemons()
-      .subscribe(res => {
-        this.pokemons = Array.prototype.map
-          .call(res, pokemon => Pokemon.createFromObject(pokemon));
-        this.filteredPokemons = this.pokemons;
-      });
   }
-
-  filterPokemons(filter) {
-    this.filteredPokemons = this.pokemons
-      .filter(pokemon => {
-        return pokemon.name.indexOf(filter) !== -1
-          || pokemon.types.some(type => type.indexOf(filter) !== -1)
-          || pokemon.id === Number(filter);
-      });
-  }
-
 }

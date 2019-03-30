@@ -1,2 +1,9 @@
-<app-navbar (search)="filterPokemons($event)"></app-navbar>
-<app-dashboard [pokemons]="filteredPokemons"></app-dashboard>
+<app-navbar (inputChanged)="searchChange($event)"></app-navbar>
+<app-dashboard (cardClicked)="selectPokemon($event)" [filterString]="filterString"></app-dashboard>
+<app-detail 
+  *ngIf="pokemon" 
+  [pokemon]="pokemon" 
+  [class.detail--visible]="pokemon !== undefined"
+  (unselected)="selectPokemon($event)">
+</app-detail>
+<iframe class="sound" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/276046276&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>

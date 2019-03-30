@@ -1,0 +1,25 @@
+<img class="detail__close" src="https://img.icons8.com/material-outlined/24/000000/multiply.png"
+  (click)="cardClicked($event)">
+<div class="detail__image-container">
+  <img class="detail__image" src="{{pokemon.gif}}" alt={{pokemon.name}} />
+</div>
+<div class="detail__name">{{pokemon.name | titlecase}}</div>
+<div class="detail__types">{{pokemon.types.join(', ') | titlecase}}</div>
+<div class="detail__weight">Weight: {{pokemon.weight}}</div>
+<div class="detail__cry" >
+  <audio controls autoplay src="{{pokemon.cry}}">
+    Your browser does not support the audio tag.
+  </audio>
+</div>
+<div class="detail__abilities">
+  <span class="detail__abilities-title">Abilities</span>
+  <div *ngFor="let ability of pokemon.abilities">
+    <li>{{ability | titlecase}}</li>
+  </div>
+</div>
+<div class="detail__moves">
+  <span class="detail__moves-title">Moves</span>
+  <div *ngFor="let move of pokemon.moves">
+    <li>{{move | titlecase}}</li>
+  </div>
+</div>

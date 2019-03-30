@@ -1,19 +1,23 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Pokemon } from '../pokemon';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+
+import { PokemonPreview } from '../pokemon-preview';
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css']
 })
-export class CardComponent implements OnInit {
+export class CardComponent {
+  @Output()
+  selectedPokemon = new EventEmitter<number>();
+
   @Input()
-  pokemon: Pokemon;
+  pokemon: PokemonPreview;
 
-  constructor() { }
-
-  ngOnInit() {
-
+  cardClicked() {
+    this.selectedPokemon.emit(this.pokemon.id);
   }
+
+  constructor() {}
 
 }

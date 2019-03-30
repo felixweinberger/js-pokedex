@@ -1,63 +1,34 @@
-
 const gulp = require('gulp');
-const browserSync = require('browser-sync').create();
+const fs = require('fs');
+const del = require('del');
 const $ = require('gulp-load-plugins')();
 
-const publicDir = './public';
-
-// Utility to ignore Node modules and Bower components
+// Utility to ignore unnecessary files
 // when generating the glob patterns array for gulp.src()
 function addDefSrcIgnore (srcArr) {
   return srcArr.concat([
+    '!**/REMOVE{,/**}',
     '!node_modules{,/**}',
-    `!${publicDir}/bower_components{,/**}`,
-
+    '!private{,/**}',
+    '!dist{,/**}',
     '!.git{,/**}',
     '!**/.DS_Store'
   ]);
 }
 
-gulp.task('default', function () {
-
-  browserSync.init({
-    server: {baseDir: publicDir}
-  });
-
-  gulp.watch([
-    publicDir + '/index.html',
-    publicDir + '/styles/*.css',
-    publicDir + '/bower_components/*',
-    publicDir + '/images/*'
-  ]).on('change', browserSync.reload);
-
+// Remove solutions from exercises
+gulp.task('remove-solutions', function () {
+  del.sync('dist');
+  return gulp.src(addDefSrcIgnore(['**']), {dot: true})
+    .pipe($.replace(/^\s*(\/\/|<!--|\/\*)\s*REMOVE-START[\s\S]*?REMOVE-END\s*(\*\/|-->)?\s*$/gm, ''))
+    .pipe(gulp.dest('dist'));
 });
 
-// Lint all files
-gulp.task('lint', ['lint-js', 'lint-html', 'lint-css']);
-
-// JavaScript and JSON linter
-gulp.task('lint-js', function () {
-  return gulp.src(addDefSrcIgnore(['**/*.js', '**/*.json']), {dot: true})
-    .pipe($.eslint({dotfiles: true}))
-    .pipe($.eslint.format())
-    .pipe($.eslint.failAfterError());
-});
-
-// HTML linter
-gulp.task('lint-html', function () {
-  return gulp.src([`${publicDir}/*.html`])
-    .pipe($.htmlLint({htmllintrc: '.htmllintrc.json'}))
-    .pipe($.htmlLint.format())
-    .pipe($.htmlLint.failAfterError());
-});
-
-// CSS linter
-gulp.task('lint-css', function () {
-  return gulp.src([`${publicDir}/styles/*.css`])
-    .pipe($.stylelint({
-      failAfterError: true,
-      reporters: [
-        {formatter: 'string', console: true}
-      ]
-    }));
+// Prepare for distribution to students
+gulp.task('dist', ['remove-solutions'], function () {
+  let npmConfig = require('./package.json');
+  npmConfig.scripts.install = 'cd client && npm i .';
+  npmConfig.scripts.precommit = 'cd client && ng lint';
+  npmConfig = JSON.stringify(npmConfig, null, 2).replace(/-master/g, '');
+  fs.writeFileSync('dist/package.json', npmConfig);
 });
