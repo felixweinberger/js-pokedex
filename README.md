@@ -3,10 +3,10 @@ Pokédex containing all 151 OG Pokémon!
 Live demo of the app is deployed at https://js-pokedex.herokuapp.com/
 
 ## Run it Locally!
-`git clone
-cd js-pokedex
-npm i
-npm start`
+> git clone
+> cd js-pokedex
+> npm i
+> npm start
 
 ## Screenshots
 ![Pokedex](/readme-images/pokedex_full.png)
