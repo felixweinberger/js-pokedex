@@ -9,7 +9,7 @@ Live demo of the app is deployed at https://js-pokedex.herokuapp.com/
 `npm start`
 
 ## Screenshots
-![Pokedex](/readme-images/Selection_021.png)
+![Pokedex](/readme-images/pokedex_full.png)
 ![Pokedex](/readme-images/pokedex.png)
 
 ## Tech Stack
