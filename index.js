@@ -14,7 +14,7 @@ router.get('/pokemons/:id', async ctx => {
 })
 
 app
-  .use(serve('public/pokemon'))
+  .use(serve('client/dist/pokemon'))
   .use(serve('public'))
   .use(router.routes())
   .use(router.allowedMethods());
